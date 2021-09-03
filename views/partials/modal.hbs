@@ -1,0 +1,272 @@
+<div
+  class="modal fade"
+  id="registerModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header d-flex flex-column align-items-center">
+        <h1 class="modal-title" id="exampleModalLabel">Create Account</h1>
+      </div>
+      <div class="modal-body">
+        <div class="form d-flex flex-column align-items-center">
+          <form action="/regist" method="post">
+            <div class="username-input mb-5">
+              <input type="email" placeholder="Email" name="email" />
+            </div>
+            <div class="password-input mb-5">
+              <input type="password" placeholder="Password" name="password" />
+            </div>
+            <div class="password-input mb-5">
+              <select name="status">
+                <option value="1">Admin</option>
+                <option value="2">User</option>
+              </select>
+            </div>
+            <div class="btn-register mb-2">
+              <button type="submit">Register</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="loginModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header d-flex flex-column align-items-center">
+        <h1 class="modal-title" id="exampleModalLabel">Login</h1>
+      </div>
+      <div class="modal-body">
+        <div class="form d-flex flex-column align-items-center">
+          <form action="/login" method="post">
+            <div class="username-input mb-5">
+              <input type="email" placeholder="Email" name="email" />
+            </div>
+            <div class="password-input mb-5">
+              <input type="password" placeholder="Password" name="password" />
+            </div>
+            <div class="btn-register mb-2">
+              <button type="submit">Login</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="playlistModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header d-flex flex-column align-items-center">
+        <h1 class="modal-title" id="exampleModalLabel">Playlist</h1>
+      </div>
+      <div class="modal-body">
+        <div class="form d-flex flex-column align-items-center">
+          <form action="/addPlaylist" method="post">
+            <div class="username-input mb-5">
+              <input type="text" placeholder="Playlist Name..." name="name" />
+            </div>
+            <div class="btn-register mb-2">
+              <button type="submit">Add</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="playlist"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-scrollable modal-xl">
+    <div class="modal-content">
+      <div class="modal-header d-flex flex-column align-items-center">
+        <h1 class="modal-title" id="exampleModalLabel">Playlist</h1>
+      </div>
+      <div class="modal-body">
+        <div class="form d-flex flex-column align-items-center">
+          <form action="/addMusic" method="post">
+            {{#each musics}}
+              <div class="card-music mb-3 d-flex align-item-center">
+                <div class="img">
+                  <img src="{{this.cover_music}}" alt="" />
+                </div>
+                <div
+                  class="title-artis d-flex flex-column justify-content-center"
+                >
+                  <div class="title color-white">
+                    {{this.title}}
+                  </div>
+                  <div class="artis color-white">
+                    {{this.name}}
+                  </div>
+                </div>
+                <div class="checkbox">
+                  <input type="checkbox" name="{{this.id}}" />
+                  <span class="checkmark"></span>
+                </div>
+              </div>
+            {{/each}}
+            <div class="btn-register mb-2">
+              <button type="submit">Add</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="addMusicModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-scrollable modal-xl">
+    <div class="modal-content">
+      <div class="modal-header d-flex flex-column align-items-center">
+        <h1 class="modal-title" id="exampleModalLabel">Add Music</h1>
+      </div>
+      <div class="modal-body">
+        <div class="form d-flex flex-column align-items-center">
+          <form action="/addMusic" method="post" enctype="multipart/form-data">
+            <div class="username-input mb-5">
+              <input type="text" placeholder="Title" name="title" />
+            </div>
+            <div class="password-input mb-5">
+              <div class="file-input-group">
+                <label for="file">Attache Thumbnail
+                <input
+                  name="image"
+                  type="file"
+                  id="file"
+                  onchange="handleChange()"
+                  hidden
+                />
+              </div>
+              <div id="preview-thumbnail"></div>
+            </div>
+            <div class="username-input mb-5">
+              <input type="text" placeholder="Music link" name="music" />
+            </div>
+            <div class="password-input mb-5">
+              <select name="genre">
+                <option selected disabled>Genre</option>
+            {{#each genre}}
+                <option value={{this.id}}>{{this.name}}</option>
+                {{/each}}
+              </select>
+            </div>
+            <div class="password-input mb-5">
+              <select name="artis">
+                <option selected disabled>Artis</option>
+            {{#each artis}}
+                <option value={{this.id}}>{{this.name}}</option>
+                {{/each}}
+              </select>
+            </div>
+            <div class="btn-register mb-2">
+              <button type="submit">Register</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="editModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-scrollable modal-xl">
+    <div class="modal-content">
+      <div class="modal-header d-flex flex-column align-items-center">
+        <h1 class="modal-title" id="exampleModalLabel">Edit Music</h1>
+      </div>
+      <div class="modal-body">
+        <div class="form d-flex flex-column align-items-center">
+          <form action="/edit" method="post" enctype="multipart/form-data">
+            <div class="username-input mb-5">
+              <input type="text" placeholder="Title" name="title" value="{{musicData.title}}" />
+            </div>
+            <div class="password-input mb-5">
+              <div class="file-input-group">
+                <label for="file">Attache Thumbnail
+                <input
+                  name="image"
+                  type="file"
+                  id="file"
+                  onchange="handleChange()"
+                  hidden
+                />
+              </div>
+              <div id="preview-thumbnail"></div>
+            </div>
+            <div class="username-input mb-5">
+              <input type="text" placeholder="Music link" name="music" value="{{musicData.music}}" />
+            </div>
+            <div class="password-input mb-5">
+              <select name="genre">
+                <option selected disabled>Genre</option>
+            {{#each genre}}
+                <option value={{this.id}}>{{this.name}}</option>
+                {{/each}}
+              </select>
+            </div>
+            <div class="password-input mb-5">
+              <select name="artis">
+                <option selected disabled>Artis</option>
+            {{#each artis}}
+                <option value={{this.id}}>{{this.name}}</option>
+                {{/each}}
+              </select>
+            </div>
+            <div class="btn-register mb-2">
+              <button type="submit">Register</button>
+            </div>
+            <input type="hidden" id="url-thumbnail" value="{{musicData.cover}}">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  const previewElement = document.getElementById('preview-thumbnail');
+    const urlThumbnail = document.getElementById('url-thumbnail').value;
+    previewElement.innerHTML = `<img src="${urlThumbnail}" style="width: 250px;" class="mt-3"/>`;
+    function handleChange(){
+        const previewElement = document.getElementById('preview-thumbnail');
+        const value = URL.createObjectURL(event.target.files[0]);
+        previewElement.innerHTML = `<img src="${value}" style="width: 250px;" class="mt-3"/>`
+    }
+</script>

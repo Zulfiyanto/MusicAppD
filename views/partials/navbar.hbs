@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-black">
+  <div class="container">
+    <div class="logo">
+      <a href="/">🎹🎹🎹</a>
+    </div>
+    <div class="box-btn d-flex align-items-center">
+      {{#if isLoginUser}}
+      <div class="user-role d-flex">
+        Hi,{{user}}
+      </div>
+      <a href="/logout"
+         class="btn-logout">Logout
+        </a>
+      <button
+      class="ms-3"
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#playlistModal"
+      >➕ Playlist</button>
+       {{else}}
+      {{#if isLoginAdmin}}
+      <a href="/logout"
+         class="btn-logout">Logout
+        </a>
+      <button
+      class="addM"
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#addMusicModal"
+      >➕ Add Music</button>
+      {{else}}
+       <button type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#loginModal">Login</button>
+      <button type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#registerModal">Register</button>
+        {{/if}}
+        {{/if}}
+    </div>
+
+  </div>
+</nav>
+{{> modal}}

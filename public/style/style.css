@@ -1,0 +1,198 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.logo {
+  font-size: 35px;
+}
+.color-white {
+  color: #ffffff;
+}
+.container-css {
+  background-color: #121212;
+}
+.user-role {
+  color: #ffffff;
+  margin-left: 50px;
+  font-size: 20px;
+  justify-content: space-between;
+}
+.modal {
+  overflow: auto !important;
+}
+input {
+  height: 7vh;
+  width: 400px;
+  border: solid 2px #1dd05d;
+  border-radius: 5px;
+  padding-left: 20px;
+  font-weight: 600;
+}
+:focus {
+  outline: none;
+}
+::placeholder {
+  font-style: italic;
+}
+.padding-none {
+  padding: 0 !important;
+  height: 100vh;
+}
+.box-dashboard {
+  overflow: scroll;
+  height: 90vh;
+}
+.bg-black {
+  background-color: #000000;
+}
+h2,
+h3,
+h5,
+p,
+a {
+  color: white !important;
+  text-decoration: none !important;
+}
+select {
+  width: 200px;
+}
+/* img {
+  height: 30vh;
+} */
+/* box-left */
+.box-music::-webkit-scrollbar,
+.box-dashboard::-webkit-scrollbar,
+.card-music::-webkit-scrollbar {
+  width: 5px;
+  height: 30%;
+}
+.chg-color {
+  background-color: #000000;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+.card-music {
+  height: 13vh;
+  background-color: #121212;
+  overflow: scroll;
+}
+.card-music .img,
+.checkbox {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+.title-artis {
+  flex: 2;
+  width: 500px;
+}
+.title-artis .title {
+  font-size: 20px;
+  font-weight: 700;
+}
+.card-music .img img {
+  height: 12vh;
+  margin-left: 20px;
+}
+.checkmark:checked {
+  background-color: #1dd05d;
+}
+.box-btn {
+  width: 400px;
+  height: 5vh;
+  justify-content: space-between;
+}
+.top-track {
+  padding: 30px;
+}
+.btn-logout {
+  display: flex;
+  min-width: 30%;
+  background-color: #1dd05d;
+  border-radius: 50px;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  color: white;
+  height: 5vh;
+  margin-left: 50px;
+}
+.box-btn button {
+  min-width: 30%;
+  background-color: #1dd05d;
+  border-radius: 50px;
+  border: none;
+  color: white;
+  height: 5vh;
+  margin-left: 50px;
+}
+.addM {
+  width: 500px;
+}
+.btn-register button {
+  width: 150px;
+  height: 5vh;
+  border: none;
+  background-color: #1dd05d;
+  color: white;
+  border-radius: 5px;
+}
+/* .box-music {
+  width: 200px;
+  height: 10vh;
+  background-color: #15883e;
+} */
+.card {
+  border: none !important;
+  background-color: #121212 !important;
+}
+.rounded img {
+  border-radius: 50%;
+}
+
+/* box-right */
+.box-right {
+  background-color: #1dd05d;
+  color: white;
+  height: 100vh;
+}
+
+/* Music Detail */
+.box-music {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.img-box-music img {
+  width: 40%;
+}
+.data-music {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.player-music {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.play img {
+  width: 100px;
+}
+
+.flex {
+  display: flex;
+  width: 500px;
+  justify-content: space-between;
+  height: 5vh;
+}
+
+.delete,
+.edit {
+  font-size: 30px;
+}

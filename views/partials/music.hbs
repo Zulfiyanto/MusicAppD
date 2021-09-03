@@ -1,0 +1,51 @@
+<div class="col-12 padding-none">
+  {{!Nav bar }}
+  {{> navbar}}
+  <div class="box-music mt-3 ">
+    <div class="img-box-music d-flex justify-content-center mb-5">
+      <img src={{musicData.cover}} alt="" />
+    </div>
+    <div class="data-music">
+      <h1>{{musicData.title}}</h1>
+      <p>{{musicData.artis}}</p>
+    </div>
+    <div class="player-music">
+      <div class="range">
+        <input type="range" name="" id="" />
+      </div>
+      <div class="flex">
+ <div class="edit">
+        <button type="button" data-bs-toggle="modal"
+        data-bs-target="#editModal">⚙</button>
+      </div>
+      <div class="play">
+        <img src="../../backward.png" alt="">
+        <audio src="{{musicData.music}}"></audio>
+        <button id="play" title="play">Play</button>
+      </div>
+      <div class="delete">
+        <a href="/delete/{{musicData.id}}">🗑</a>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let music = document.querySelector('audio');
+  let play = document.getElementById('play');
+
+  let isPlaying = false
+
+  function playsong(){
+    isPlaying = true
+    music.play()
+  }
+
+  function pausesong(){
+    isPlaying = false
+    music.pause()
+  }
+
+  play.addEventListener('click',()=> (isPlaying?pausesong():playsong()))
+</script>

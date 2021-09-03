@@ -1,0 +1,23 @@
+<div class="container-fluid mb-3">
+  <div class="box-music d-flex flex-column">
+    {{#each musics}}
+      <div class="card-music mb-3 d-flex align-item-center">
+        <div class="img">
+          <img src="{{this.cover_music}}" alt="" />
+        </div>
+        <div class="title-artis d-flex flex-column justify-content-center">
+          <div class="title">
+            {{this.title}}
+          </div>
+          <div class="artis">
+            {{this.name}}
+          </div>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="{{this.id}}" />
+          <span class="checkmark"></span>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>
